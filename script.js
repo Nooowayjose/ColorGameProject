@@ -9,6 +9,10 @@ var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
 var modeButtons = document.querySelectorAll(".mode");
 
+var sound = new Howl({
+  src: ['sounds/payment_success.m4a']
+});
+
 
 init();
 
@@ -34,6 +38,9 @@ function init(){
         resetButton.textContent = "Play Again?";
         changeColors(clickedColor);
         h1.style.backgroundColor = clickedColor;
+
+        sound.play();
+
       } else{
         this.style.backgroundColor = "#232323"; //fade out colors
         messageDisplay.textContent = "Try Again";
